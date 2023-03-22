@@ -89,7 +89,7 @@ namespace ULTİA
 					inner join Ekip on Kullanici.EkipID = Ekip.EkipID
 					where Ekip.EkipID = '{kullanici.EkipID}'";
 
-            //using: SqlConnection nesnesinin kullanımını sağlar. Ve İşlem bittiğinde kapatılıp temizlenmesi işlevi.
+            //using: SqlConnection nesnesinin kullanımını sağlar. Ve İşlem bittiğinde kapatılıp temizlenmesi işlevi. Bu sayede manuel olarak nesneyi Dispose etmemize gerek kalmaz. ,using bloğundan çıkılır çıkılmaz GC(Garbage Collector)’ye devredilir ve hemen silinirler(Dispose edilirler).
             using (SqlCommand command = new SqlCommand(sql, baglanti))
             {
 
