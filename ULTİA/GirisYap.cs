@@ -36,7 +36,7 @@ namespace ULTİA
             baglanti.Open();
             SqlCommand komut = new SqlCommand("select * from kullanici where KullaniciAdi='" + txtKullaniciAd.Text + "' and KullaniciPassword ='" + txtKullaniciSifre.Text + "'", baglanti);
 
-            //SqlDataReader ile okuma işlemi ve satır sayısını kontrol etmek için tanımladım.
+            //SqlDataReader: ile okuma işlemi ve satır sayısını kontrol etmek için tanımladım.
             SqlDataReader dr = komut.ExecuteReader();
             //dr.HasRows ile satırlar içerisinde veri olup olmadığını kontrol etmek için tanımladım.
             if (dr.HasRows)
