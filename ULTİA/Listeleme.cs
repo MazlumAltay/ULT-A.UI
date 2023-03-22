@@ -89,6 +89,7 @@ namespace ULTİA
 					inner join Ekip on Kullanici.EkipID = Ekip.EkipID
 					where Ekip.EkipID = '{kullanici.EkipID}'";
 
+            //using: SqlConnection nesnesinin kullanımını sağlar. Ve İşlem bittiğinde kapatılıp temizlenmesi işlevi.
             using (SqlCommand command = new SqlCommand(sql, baglanti))
             {
 
