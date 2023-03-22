@@ -69,8 +69,8 @@ namespace ULTİA
 
                     cmd.Transaction = tran;
                     tran.Commit();
+                    //Veritabanı bağlantısı sonrası etkilenen satır sayısını görürüz.
                     etkilenenSatirSayisi = cmd.ExecuteNonQuery();
-
                     MessageBox.Show("Kayıt Başarılı...");
                 }
                 

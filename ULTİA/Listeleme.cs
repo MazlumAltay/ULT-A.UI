@@ -11,6 +11,7 @@ using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ULTİA.DAL;
 using ULTİA.DTO.DTO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using ListView = System.Windows.Forms.ListView;
@@ -19,6 +20,7 @@ namespace ULTİA
 {
     public partial class Listeleme : Form
     {
+        
         private Kullanici kullanici;
         public Listeleme()
         {
@@ -56,8 +58,6 @@ namespace ULTİA
             // SqlCommand nesnesi oluşturarak SQL sorgusunu çalıştırıyoruz
             using (SqlCommand command = new SqlCommand(sql, baglanti))
             {
-                // Kullanıcının ID'si için parametre ekliyoruz
-
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
                     // ListView'a verileri ekliyoruz.
@@ -80,9 +80,7 @@ namespace ULTİA
         {
             baglanti.Open();
 
-            string sql = $@"SELECT *
-                    FROM Urun
-                    --INNER JOIN Urun ON Urun.BarkotAdi = Urun.BarkotAdi
+            string sql = $@"SELECT * FROM Urun
                     INNER JOIN UrunTipi ON Urun.UrunTipiID = UrunTipi.UrunTipiID
                     INNER JOIN Marka ON Urun.MarkaID = Marka.MarkaID
                     INNER JOIN Model ON Urun.ModelID = Model.ModelID
@@ -142,6 +140,14 @@ namespace ULTİA
         {
             RaporListesi raporListesi = new RaporListesi();
             raporListesi.Show();
+        }
+
+        private void btnCikis_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form1 frm1 = new Form1();
+            frm1.ShowDialog();
+
         }
     }
 }

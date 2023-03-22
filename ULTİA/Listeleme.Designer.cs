@@ -42,15 +42,16 @@
             this.lblIsim = new System.Windows.Forms.Label();
             this.BtnVarlik = new System.Windows.Forms.Button();
             this.btnRaporListele = new System.Windows.Forms.Button();
+            this.btnCikis = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ultiaDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ultiaDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnYeniKayit
             // 
-            this.btnYeniKayit.Location = new System.Drawing.Point(295, 59);
+            this.btnYeniKayit.Location = new System.Drawing.Point(357, 451);
             this.btnYeniKayit.Name = "btnYeniKayit";
-            this.btnYeniKayit.Size = new System.Drawing.Size(135, 23);
+            this.btnYeniKayit.Size = new System.Drawing.Size(130, 23);
             this.btnYeniKayit.TabIndex = 1;
             this.btnYeniKayit.Text = "Yeni Kayıt";
             this.btnYeniKayit.UseVisualStyleBackColor = true;
@@ -58,7 +59,7 @@
             // 
             // btnListele
             // 
-            this.btnListele.Location = new System.Drawing.Point(148, 59);
+            this.btnListele.Location = new System.Drawing.Point(13, 30);
             this.btnListele.Name = "btnListele";
             this.btnListele.Size = new System.Drawing.Size(130, 23);
             this.btnListele.TabIndex = 2;
@@ -74,11 +75,12 @@
             this.ChGuncelFiyat,
             this.ChMarka,
             this.ChModel});
+            this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(12, 97);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(418, 341);
+            this.listView1.Size = new System.Drawing.Size(475, 341);
             this.listView1.TabIndex = 3;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -86,7 +88,7 @@
             // ChKayitNo
             // 
             this.ChKayitNo.Text = "Kayıt Numarası";
-            this.ChKayitNo.Width = 92;
+            this.ChKayitNo.Width = 100;
             // 
             // ChUrunTipi
             // 
@@ -121,7 +123,7 @@
             // lblIsim
             // 
             this.lblIsim.AutoSize = true;
-            this.lblIsim.Location = new System.Drawing.Point(385, 21);
+            this.lblIsim.Location = new System.Drawing.Point(452, 9);
             this.lblIsim.Name = "lblIsim";
             this.lblIsim.Size = new System.Drawing.Size(35, 13);
             this.lblIsim.TabIndex = 4;
@@ -131,7 +133,7 @@
             // 
             this.BtnVarlik.Location = new System.Drawing.Point(12, 59);
             this.BtnVarlik.Name = "BtnVarlik";
-            this.BtnVarlik.Size = new System.Drawing.Size(117, 23);
+            this.BtnVarlik.Size = new System.Drawing.Size(131, 23);
             this.BtnVarlik.TabIndex = 5;
             this.BtnVarlik.Text = "Ekip";
             this.BtnVarlik.UseVisualStyleBackColor = true;
@@ -139,19 +141,30 @@
             // 
             // btnRaporListele
             // 
-            this.btnRaporListele.Location = new System.Drawing.Point(13, 30);
+            this.btnRaporListele.Location = new System.Drawing.Point(221, 451);
             this.btnRaporListele.Name = "btnRaporListele";
-            this.btnRaporListele.Size = new System.Drawing.Size(116, 23);
+            this.btnRaporListele.Size = new System.Drawing.Size(130, 23);
             this.btnRaporListele.TabIndex = 6;
             this.btnRaporListele.Text = "Rapor Listele";
             this.btnRaporListele.UseVisualStyleBackColor = true;
             this.btnRaporListele.Click += new System.EventHandler(this.btnRaporListele_Click);
             // 
+            // btnCikis
+            // 
+            this.btnCikis.Location = new System.Drawing.Point(411, 29);
+            this.btnCikis.Name = "btnCikis";
+            this.btnCikis.Size = new System.Drawing.Size(75, 23);
+            this.btnCikis.TabIndex = 7;
+            this.btnCikis.Text = "Çıkış";
+            this.btnCikis.UseVisualStyleBackColor = true;
+            this.btnCikis.Click += new System.EventHandler(this.btnCikis_Click);
+            // 
             // Listeleme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(447, 450);
+            this.ClientSize = new System.Drawing.Size(499, 486);
+            this.Controls.Add(this.btnCikis);
             this.Controls.Add(this.btnRaporListele);
             this.Controls.Add(this.BtnVarlik);
             this.Controls.Add(this.lblIsim);
@@ -183,5 +196,6 @@
         private System.Windows.Forms.Label lblIsim;
         private System.Windows.Forms.Button BtnVarlik;
         private System.Windows.Forms.Button btnRaporListele;
+        private System.Windows.Forms.Button btnCikis;
     }
 }

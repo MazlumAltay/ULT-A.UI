@@ -53,9 +53,10 @@
             this.columnHeader7});
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(12, 63);
+            this.listView1.Location = new System.Drawing.Point(14, 63);
+            this.listView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(708, 369);
+            this.listView1.Size = new System.Drawing.Size(754, 369);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -63,12 +64,12 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Kullanıcı Adı";
-            this.columnHeader1.Width = 79;
+            this.columnHeader1.Width = 89;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Marka";
-            this.columnHeader2.Width = 86;
+            this.columnHeader2.Width = 84;
             // 
             // columnHeader3
             // 
@@ -77,16 +78,17 @@
             // columnHeader4
             // 
             this.columnHeader4.Text = "Açıklama";
+            this.columnHeader4.Width = 81;
             // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "Ürün Maliyet Bilgisi";
-            this.columnHeader5.Width = 111;
+            this.columnHeader5.Width = 133;
             // 
             // columnHeader6
             // 
             this.columnHeader6.Text = "Ürün Güncel Fiyat Bilgisi";
-            this.columnHeader6.Width = 133;
+            this.columnHeader6.Width = 160;
             // 
             // columnHeader7
             // 
@@ -95,9 +97,10 @@
             // 
             // btnHesapla
             // 
-            this.btnHesapla.Location = new System.Drawing.Point(12, 456);
+            this.btnHesapla.Location = new System.Drawing.Point(14, 456);
+            this.btnHesapla.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnHesapla.Name = "btnHesapla";
-            this.btnHesapla.Size = new System.Drawing.Size(125, 23);
+            this.btnHesapla.Size = new System.Drawing.Size(146, 23);
             this.btnHesapla.TabIndex = 1;
             this.btnHesapla.Text = "Toplam Ciro";
             this.btnHesapla.UseVisualStyleBackColor = true;
@@ -106,30 +109,34 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(143, 461);
+            this.label1.Location = new System.Drawing.Point(167, 461);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(13, 13);
+            this.label1.Size = new System.Drawing.Size(14, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "=";
             // 
             // lblCiro
             // 
             this.lblCiro.AutoSize = true;
-            this.lblCiro.Location = new System.Drawing.Point(163, 461);
+            this.lblCiro.Location = new System.Drawing.Point(190, 461);
+            this.lblCiro.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCiro.Name = "lblCiro";
-            this.lblCiro.Size = new System.Drawing.Size(22, 13);
+            this.lblCiro.Size = new System.Drawing.Size(27, 13);
             this.lblCiro.TabIndex = 3;
             this.lblCiro.Text = "-----";
             // 
             // RaporListesi
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(733, 507);
+            this.ClientSize = new System.Drawing.Size(781, 507);
             this.Controls.Add(this.lblCiro);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnHesapla);
             this.Controls.Add(this.listView1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "RaporListesi";
             this.Text = "RaporListesi";
             this.Load += new System.EventHandler(this.RaporListesi_Load);

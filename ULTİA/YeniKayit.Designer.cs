@@ -103,6 +103,7 @@
             // 
             // cmbGarantiliMi
             // 
+            this.cmbGarantiliMi.Enabled = false;
             this.cmbGarantiliMi.FormattingEnabled = true;
             this.cmbGarantiliMi.Location = new System.Drawing.Point(41, 269);
             this.cmbGarantiliMi.Name = "cmbGarantiliMi";
@@ -126,6 +127,7 @@
             // 
             // dtpUrununEmeklilikTarihi
             // 
+            this.dtpUrununEmeklilikTarihi.Enabled = false;
             this.dtpUrununEmeklilikTarihi.Location = new System.Drawing.Point(371, 109);
             this.dtpUrununEmeklilikTarihi.Name = "dtpUrununEmeklilikTarihi";
             this.dtpUrununEmeklilikTarihi.Size = new System.Drawing.Size(266, 20);

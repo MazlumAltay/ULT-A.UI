@@ -23,7 +23,6 @@ namespace ULTİA
         private void RaporListesi_Load(object sender, EventArgs e)
         {
             UrunListele();
-            ToplamCiro();
         }
 
         private void ToplamCiro()
