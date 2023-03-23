@@ -30,7 +30,7 @@ namespace ULTİA
             string connectionString = (@"Data Source=DESKTOP-E6M2A1F\SQLEXPRESS;Initial Catalog=Ultia;Integrated Security=True");
             // Verileri gönderme işlemini yaptım.
             string query =
-                "SELECT SUM((Urun.UrunGuncelFiyatBilgisi - Urun.UrunMaliyetBilgisi)) AS ToplamCiro FROM Urun JOIN Kullanici ON Urun.KullaniciID = Kullanici.KullaniciID JOIN Marka ON Urun.MarkaID = Marka.MarkaID JOIN Model ON Urun.ModelID = Model.ModelID";
+                "select sum((Urun.UrunGuncelFiyatBilgisi - Urun.UrunMaliyetBilgisi)) as ToplamCiro from Urun join Kullanici on Urun.KullaniciID = Kullanici.KullaniciID join Marka on Urun.MarkaID = Marka.MarkaID join Model on Urun.ModelID = Model.ModelID";
             int toplamCiro = 0;
 
             //using: SqlConnection nesnesinin kullanımını sağlar. Ve İşlem bittiğinde kapatılıp temizlenmesi işlevi. Bu sayede manuel olarak nesneyi Dispose etmemize gerek kalmaz. ,using bloğundan çıkılır çıkılmaz GC(Garbage Collector)’ye devredilir ve hemen silinirler(Dispose edilirler).

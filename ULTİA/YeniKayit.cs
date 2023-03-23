@@ -116,7 +116,7 @@ namespace ULTİA
             SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-E6M2A1F\SQLEXPRESS;Initial Catalog=Ultia;Integrated Security=True");
 
             // SQL sorgusu
-            string query = "SELECT * FROM ParaBirim";
+            string query = "select * from ParaBirim";
 
             // Veritabanından verileri çekme işlemi.
             SqlCommand cmd = new SqlCommand(query, conn);
@@ -143,7 +143,7 @@ namespace ULTİA
             SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-E6M2A1F\SQLEXPRESS;Initial Catalog=Ultia;Integrated Security=True");
 
             // SQL sorgusu
-            string query = "SELECT * FROM ParaBirim";
+            string query = "select * from ParaBirim";
 
             // Veritabanından verileri çekme işlemi.
             SqlCommand cmd = new SqlCommand(query, conn);
@@ -175,7 +175,7 @@ namespace ULTİA
         private void ModelYukle()
         {
             SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-E6M2A1F\SQLEXPRESS;Initial Catalog=Ultia;Integrated Security=True");
-            string sql = "SELECT * FROM Model";
+            string sql = "select * from Model";
 
             try
             {
@@ -212,7 +212,7 @@ namespace ULTİA
         private void MarkaYukle()
         {
             SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-E6M2A1F\SQLEXPRESS;Initial Catalog=Ultia;Integrated Security=True");
-            string sql = "SELECT * FROM Marka";
+            string sql = "select * from Marka";
 
             try
             {
@@ -249,7 +249,7 @@ namespace ULTİA
         private void UrunTipiYukle()
         {
             SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-E6M2A1F\SQLEXPRESS;Initial Catalog=Ultia;Integrated Security=True");
-            string sql = "SELECT * FROM UrunTipi";
+            string sql = "select * from UrunTipi";
 
             try
             {
@@ -294,7 +294,7 @@ namespace ULTİA
             int secilenMarkaID = ((Marka)cmbMarka.SelectedItem).MarkaID;
 
             // SQL sorgusunu oluşturdum ve MarkaID'ye göre filtrele işlemi gerçekleştirdim.
-            string sql = "SELECT ModelID, ModelAdi FROM Model WHERE MarkaID = @MarkaID";
+            string sql = "select ModelID, ModelAdi from Model where MarkaID = @MarkaID";
             SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-E6M2A1F\SQLEXPRESS;Initial Catalog=Ultia;Integrated Security=True");
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@MarkaID", secilenMarkaID);

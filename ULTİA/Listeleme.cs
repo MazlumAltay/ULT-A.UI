@@ -48,12 +48,12 @@ namespace ULTİA
 
             // Veritabanından verileri çekeceğimiz SQL sorgusunu hazırlıyoruz
 
-            string sql = $@"SELECT Urun.BarkotAdi, UrunTipi.UrunTipiAdi, Urun.UrunGuncelFiyatBilgisi, Marka.MarkaAdi, Model.ModelAdi, Urun.KullaniciID
-                    FROM Urun
-                    INNER JOIN UrunTipi ON Urun.UrunTipiID = UrunTipi.UrunTipiID
-                    INNER JOIN Marka ON Urun.MarkaID = Marka.MarkaID
-                    INNER JOIN Model ON Urun.ModelID = Model.ModelID
-                    WHERE Urun.KullaniciID = '{kullanici.KullaniciID}'";
+            string sql = $@"select Urun.BarkotAdi, UrunTipi.UrunTipiAdi, Urun.UrunGuncelFiyatBilgisi, Marka.MarkaAdi, Model.ModelAdi, Urun.KullaniciID
+                    from Urun
+                    inner join UrunTipi on Urun.UrunTipiID = UrunTipi.UrunTipiID
+                    inner join Marka on Urun.MarkaID = Marka.MarkaID
+                    inner join Model on Urun.ModelID = Model.ModelID
+                    where Urun.KullaniciID = '{kullanici.KullaniciID}'";
 
             // SqlCommand nesnesi oluşturarak SQL sorgusunu çalıştırıyoruz
             using (SqlCommand command = new SqlCommand(sql, baglanti))
@@ -80,10 +80,10 @@ namespace ULTİA
         {
             baglanti.Open();
 
-            string sql = $@"SELECT * FROM Urun
-                    INNER JOIN UrunTipi ON Urun.UrunTipiID = UrunTipi.UrunTipiID
-                    INNER JOIN Marka ON Urun.MarkaID = Marka.MarkaID
-                    INNER JOIN Model ON Urun.ModelID = Model.ModelID
+            string sql = $@"select * from Urun
+                    inner join UrunTipi ON Urun.UrunTipiID = UrunTipi.UrunTipiID
+                    inner join Marka ON Urun.MarkaID = Marka.MarkaID
+                    inner join Model ON Urun.ModelID = Model.ModelID
 					inner join Zimmet on Urun.UrunID = Zimmet.ZimmetID
 					inner join Kullanici on Zimmet.KullaniciID = Kullanici.KullaniciID
 					inner join Ekip on Kullanici.EkipID = Ekip.EkipID
@@ -129,7 +129,6 @@ namespace ULTİA
         {
             YeniKayit yeniKayit = new YeniKayit(kullanici);
             yeniKayit.Show();
-            //this.Hide();
         }
 
         private void BtnVarlik_Click(object sender, EventArgs e)
