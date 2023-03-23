@@ -21,7 +21,7 @@ namespace ULTİA
     public partial class Listeleme : Form
     {
         
-        private Kullanici kullanici;
+        public Kullanici kullanici;
         public Listeleme()
         {
             InitializeComponent();
@@ -33,8 +33,6 @@ namespace ULTİA
         }
 
         SqlConnection baglanti = new SqlConnection(@"Data Source=DESKTOP-E6M2A1F\SQLEXPRESS;Initial Catalog=Ultia;Integrated Security=True");
-
-        //public object KullaniciID { get; private set; }
 
         private void Listeleme_Load(object sender, EventArgs e)
         {
@@ -55,12 +53,16 @@ namespace ULTİA
                     inner join Model on Urun.ModelID = Model.ModelID
                     where Urun.KullaniciID = '{kullanici.KullaniciID}'";
 
+            //using: SqlConnection nesnesinin kullanımını sağlar. Ve İşlem bittiğinde kapatılıp temizlenmesi işlevi. Bu sayede manuel olarak nesneyi Dispose etmemize gerek kalmaz. ,using bloğundan çıkılır çıkılmaz GC(Garbage Collector)’ye devredilir ve hemen silinirler(Dispose edilirler).
+
             // SqlCommand nesnesi oluşturarak SQL sorgusunu çalıştırıyoruz
+
             using (SqlCommand command = new SqlCommand(sql, baglanti))
             {
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
                     // ListView'a verileri ekliyoruz.
+
                     while (reader.Read())
                     {
                         ListViewItem item = new ListViewItem(reader["BarkotAdi"].ToString());
@@ -73,7 +75,6 @@ namespace ULTİA
                 }
             }
             baglanti.Close();
-            //inner join Zimmet on Urun.UrunID = Zimmet.ZimmetID
         }
 
         private void EkipListe()
@@ -90,12 +91,14 @@ namespace ULTİA
 					where Ekip.EkipID = '{kullanici.EkipID}'";
 
             //using: SqlConnection nesnesinin kullanımını sağlar. Ve İşlem bittiğinde kapatılıp temizlenmesi işlevi. Bu sayede manuel olarak nesneyi Dispose etmemize gerek kalmaz. ,using bloğundan çıkılır çıkılmaz GC(Garbage Collector)’ye devredilir ve hemen silinirler(Dispose edilirler).
+
             using (SqlCommand command = new SqlCommand(sql, baglanti))
             {
 
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
                     // Listbox'a verileri ekliyoruz.
+
                     while (reader.Read())
                     {
 
@@ -111,6 +114,8 @@ namespace ULTİA
             }
             baglanti.Close();
         }
+
+        //Listelemede üst üste eklemeyi engellemek için.
 
         private void btnListele_Click(object sender, EventArgs e)
         {

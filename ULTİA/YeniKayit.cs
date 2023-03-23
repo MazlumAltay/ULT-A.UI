@@ -32,7 +32,9 @@ namespace ULTİA
         private void btnEkle_Click(object sender, EventArgs e)
         {
             SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-E6M2A1F\SQLEXPRESS;Initial Catalog=Ultia;Integrated Security=True");
+
             // null değer girmemin sebebi işlem başlamadan önce bellek oluşturmak.
+
             SqlTransaction tran = null;
             int etkilenenSatirSayisi = 0;
 
@@ -40,7 +42,9 @@ namespace ULTİA
             try
             {
                 conn.Open();
+
                 //yukarıda Null değer girişinden sonra burada işlem oluşturdum ve hata durumuna karşı önlem aldım.
+
                 tran = conn.BeginTransaction();
 
                 SqlCommand cmd = new SqlCommand(
@@ -69,7 +73,9 @@ namespace ULTİA
 
                     cmd.Transaction = tran;
                     tran.Commit();
+
                     //Veritabanı bağlantısı sonrası etkilenen satır sayısını görürüz.
+
                     etkilenenSatirSayisi = cmd.ExecuteNonQuery();
                     MessageBox.Show("Kayıt Başarılı...");
                 }

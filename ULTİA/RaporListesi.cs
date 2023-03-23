@@ -28,12 +28,15 @@ namespace ULTİA
         private void ToplamCiro()
         {
             string connectionString = (@"Data Source=DESKTOP-E6M2A1F\SQLEXPRESS;Initial Catalog=Ultia;Integrated Security=True");
+
             // Verileri gönderme işlemini yaptım.
+
             string query =
                 "select sum((Urun.UrunGuncelFiyatBilgisi - Urun.UrunMaliyetBilgisi)) as ToplamCiro from Urun join Kullanici on Urun.KullaniciID = Kullanici.KullaniciID join Marka on Urun.MarkaID = Marka.MarkaID join Model on Urun.ModelID = Model.ModelID";
             int toplamCiro = 0;
 
             //using: SqlConnection nesnesinin kullanımını sağlar. Ve İşlem bittiğinde kapatılıp temizlenmesi işlevi. Bu sayede manuel olarak nesneyi Dispose etmemize gerek kalmaz. ,using bloğundan çıkılır çıkılmaz GC(Garbage Collector)’ye devredilir ve hemen silinirler(Dispose edilirler).
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
@@ -54,20 +57,22 @@ namespace ULTİA
 
             // Veritabanından verileri çekeceğimiz SQL sorgusunu hazırlıyoruz
 
-            string sql = $@"SELECT Kullanici.KullaniciAdi, Marka.MarkaAdi, Model.ModelAdi, Urun.Aciklama, Urun.UrunMaliyetBilgisi, Urun.UrunGuncelFiyatBilgisi,     Urun.BarkotAdi
-                FROM Urun
-                JOIN Kullanici ON Urun.KullaniciID = Kullanici.KullaniciID
-                JOIN Marka ON Urun.MarkaID = Marka.MarkaID
-                JOIN Model ON Urun.ModelID = Model.ModelID;";
+            string sql = $@"select Kullanici.KullaniciAdi, Marka.MarkaAdi, Model.ModelAdi, Urun.Aciklama, Urun.UrunMaliyetBilgisi, Urun.UrunGuncelFiyatBilgisi,     Urun.BarkotAdi
+                from Urun
+                join Kullanici on Urun.KullaniciID = Kullanici.KullaniciID
+                join Marka on Urun.MarkaID = Marka.MarkaID
+                join Model on Urun.ModelID = Model.ModelID;";
 
             // SqlCommand nesnesi oluşturarak SQL sorgusunu çalıştırıyoruz
+
             using (SqlCommand command = new SqlCommand(sql, baglanti))
             {
-                // Kullanıcının ID'si için parametre ekliyoruz
-
+                
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
+
                     // ListView'a verileri ekliyoruz.
+
                     while (reader.Read())
                     {
                         ListViewItem item = new ListViewItem(reader["KullaniciAdi"].ToString());
