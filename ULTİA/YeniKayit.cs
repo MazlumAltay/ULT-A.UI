@@ -329,7 +329,7 @@ namespace ULTİA
             //    conn.Close();
             //} 
             #endregion
-
+            //Marka seçilmez ise hata verilmesi için.
             if (cmbMarka.SelectedItem != null)
             {
                 // Seçilen Marka nesnesinden MarkaID değerini alıyoruz.
@@ -347,6 +347,7 @@ namespace ULTİA
                     conn.Open();
 
                     // SQL sorgusunu ile işlemi gerçekleştirme.
+                    // SQL sorgusunu çalıştırır ve veritabanı içerisinde okuma gerçekleştirir.
                     SqlDataReader reader = cmd.ExecuteReader();
                     cmbModel.Items.Clear();
                     if (reader.HasRows)
@@ -369,11 +370,6 @@ namespace ULTİA
                     // Veritabanı bağlantısını kaptma işlemi.
                     conn.Close();
                 }
-            }
-            else
-            {
-                // seçim yapılmadığı için bir hata mesajı gösterilebilir
-                MessageBox.Show("Lütfen bir marka seçin.");
             }
         }
         
