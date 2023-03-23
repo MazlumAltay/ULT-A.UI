@@ -73,7 +73,7 @@ namespace ULTİA
                     etkilenenSatirSayisi = cmd.ExecuteNonQuery();
                     MessageBox.Show("Kayıt Başarılı...");
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -287,46 +287,95 @@ namespace ULTİA
             RaporListesi raporListesi = new RaporListesi();
             raporListesi.Show();
         }
-
+        
         private void cmbMarka_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Seçilen Marka nesnesinden MarkaID değerini alıyoruz.
-            int secilenMarkaID = ((Marka)cmbMarka.SelectedItem).MarkaID;
+            #region MarkaYükle
+            //// Seçilen Marka nesnesinden MarkaID değerini alıyoruz.
+            //int secilenMarkaID = ((Marka)cmbMarka.SelectedItem).MarkaID;
 
-            // SQL sorgusunu oluşturdum ve MarkaID'ye göre filtrele işlemi gerçekleştirdim.
-            string sql = "select ModelID, ModelAdi from Model where MarkaID = @MarkaID";
-            SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-E6M2A1F\SQLEXPRESS;Initial Catalog=Ultia;Integrated Security=True");
-            SqlCommand cmd = new SqlCommand(sql, conn);
-            cmd.Parameters.AddWithValue("@MarkaID", secilenMarkaID);
+            //// SQL sorgusunu oluşturdum ve MarkaID'ye göre filtrele işlemi gerçekleştirdim.
+            //string sql = "SELECT ModelID, ModelAdi FROM Model WHERE MarkaID = @MarkaID";
+            //SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-E6M2A1F\SQLEXPRESS;Initial Catalog=Ultia;Integrated Security=True");
+            //SqlCommand cmd = new SqlCommand(sql, conn);
+            //cmd.Parameters.AddWithValue("@MarkaID", secilenMarkaID);
 
-            try
+            //try
+            //{
+            //    // Veritabanı bağlantısını
+            //    conn.Open();
+
+            //    // SQL sorgusunu ile işlemi gerçekleştirme.
+            //    SqlDataReader reader = cmd.ExecuteReader();
+            //    cmbModel.Items.Clear();
+            //    if (reader.HasRows)
+            //    {
+            //        while (reader.Read())
+            //        {
+            //            Model model = new Model();
+            //            model.ModelID = reader.GetInt32(0);
+            //            model.ModelAdi = reader.GetString(1);
+            //            cmbModel.Items.Add(model);
+            //        }
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    // Hata durumunda yapılacak işlemler.
+            //}
+            //finally
+            //{
+            //    // Veritabanı bağlantısını kaptma işlemi.
+            //    conn.Close();
+            //} 
+            #endregion
+
+            if (cmbMarka.SelectedItem != null)
             {
-                // Veritabanı bağlantısını
-                conn.Open();
+                // Seçilen Marka nesnesinden MarkaID değerini alıyoruz.
+                int secilenMarkaID = ((Marka)cmbMarka.SelectedItem).MarkaID;
 
-                // SQL sorgusunu ile işlemi gerçekleştirme.
-                SqlDataReader reader = cmd.ExecuteReader();
-                cmbModel.Items.Clear();
-                if (reader.HasRows)
+                // SQL sorgusunu oluşturdum ve MarkaID'ye göre filtrele işlemi gerçekleştirdim.
+                string sql = "SELECT ModelID, ModelAdi FROM Model WHERE MarkaID = @MarkaID";
+                SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-E6M2A1F\SQLEXPRESS;Initial Catalog=Ultia;Integrated Security=True");
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@MarkaID", secilenMarkaID);
+
+                try
                 {
-                    while (reader.Read())
+                    // Veritabanı bağlantısını
+                    conn.Open();
+
+                    // SQL sorgusunu ile işlemi gerçekleştirme.
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    cmbModel.Items.Clear();
+                    if (reader.HasRows)
                     {
-                        Model model = new Model();
-                        model.ModelID = reader.GetInt32(0);
-                        model.ModelAdi = reader.GetString(1);
-                        cmbModel.Items.Add(model);
+                        while (reader.Read())
+                        {
+                            Model model = new Model();
+                            model.ModelID = reader.GetInt32(0);
+                            model.ModelAdi = reader.GetString(1);
+                            cmbModel.Items.Add(model);
+                        }
                     }
                 }
+                catch (Exception ex)
+                {
+                    // Hata durumunda yapılacak işlemler.
+                }
+                finally
+                {
+                    // Veritabanı bağlantısını kaptma işlemi.
+                    conn.Close();
+                }
             }
-            catch (Exception ex)
+            else
             {
-                // Hata durumunda yapılacak işlemler.
-            }
-            finally
-            {
-                // Veritabanı bağlantısını kaptma işlemi.
-                conn.Close();
+                // seçim yapılmadığı için bir hata mesajı gösterilebilir
+                MessageBox.Show("Lütfen bir marka seçin.");
             }
         }
+        
     }
 }
